@@ -1,0 +1,35 @@
+body {
+    background-color:#c4cbd6;
+    font-family: 'Georgia';
+}
+header {
+    font-family: 'Alegreya Sans SC';
+    text-align: center;
+}
+h1 {
+    background-color:#0b4aaf;
+    color: #c4cbd6;
+    padding: 30px;
+}
+nav {
+    font-size: 22px;
+    margin-top: 20px;
+}
+.navItem {
+    border: 3px solid #af0b70;
+    padding: 15px;
+}
+.content {
+    width: 80%;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+footer {
+    background-color:#0b4aaf;
+    color: #ffffff;
+    text-align:center;
+    padding:10px;
+    margin-top:7px;
+    font-size:14px;
+}
