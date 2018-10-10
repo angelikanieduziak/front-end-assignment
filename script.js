@@ -1,7 +1,6 @@
 function send() {
-    var result;
-    result = validateForm();
-    if (result == true) {
+
+    if (validateForm()) {
         alert("Message sent");
         document.getElementById("contactForm").reset(); 
         checkSubmitButton();
@@ -9,7 +8,7 @@ function send() {
 }
 
 function validateForm() {
-    var validationMessage, name, email, message, isOk;
+    var validationMessage, name, email, isOk;
     name = document.getElementById("name").value;
     email = document.getElementById("email").value;
     message = document.getElementById("message").value;
