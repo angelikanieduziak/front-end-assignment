@@ -26,14 +26,14 @@
                 <form name="contactForm" id="contactForm" action="javascript:void(0);">
 
                     <label for="name">Name:</label>
-                    <input class="input" type="text" name="name" id="name" placeholder="Enter your name" onkeyup="checkSubmitButton()"><br>
+                    <input class="input" type="text" name="name" id="name" placeholder="Enter your name" onkeyup="updateSubmitButton()"><br>
                     <p class="validationMessage" id="validationOfName"></p>
                     
                     <label for="email">Email: </label>
-                    <input class="input" type="text" name="email" id="email" placeholder="Give your email" onkeyup="checkSubmitButton()"><br>   
+                    <input class="input" type="text" name="email" id="email" placeholder="Give your email" onkeyup="updateSubmitButton()"><br>   
                     <p class="validationMessage" id="validationOfEmail"></p>
                     
-                    <textarea class="input" name="message" id="message" rows="10" cols="100" placeholder="Type a message." onkeyup="checkSubmitButton()"></textarea><br>
+                    <textarea class="input" name="message" id="message" rows="10" cols="100" placeholder="Type a message." onkeyup="updateSubmitButton()"></textarea><br>
                     <p class="validationMessage" id="validationOfMessage"></p>
                     
                     <input class="sendButton" type="submit" id="submitButton" value="SEND" disabled="disabled" onclick="send()">  

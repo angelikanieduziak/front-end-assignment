@@ -1,63 +1,55 @@
+let validation = {
+    name : {
+        pattern: /^([A-Z][a-zA-Z]* ?)*([A-Z][a-zA-Z]*)$/, 
+        errorMessage: "Type correct name (all first letter have to be uppercase)!"
+    },
+    email: {
+        pattern: /^[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9][a-zA-Z0-9._-]*\.[a-zA-Z.]{2,6}$/,
+        errorMessage: "Type correct email!"
+    }
+}
+
 function send() {
 
     if (validateForm()) {
         alert("Message sent");
         document.getElementById("contactForm").reset(); 
-        checkSubmitButton();
+        updateSubmitButton();
     }
 }
 
 function validateForm() {
-    var validationMessage, name, email, isOk;
+    let validationMessage, name, email, isOk;
     name = document.getElementById("name").value;
     email = document.getElementById("email").value;
-    message = document.getElementById("message").value;
     isOk = true;
 
-    validationMessage = validateName(name);
-    if (validationMessage != "") {
-        isOk = false;
-    } 
+    isOk = validateInput(name, validation.name.pattern);
+    validationMessage = isOk ? "" : validation.name.errorMessage;
     document.getElementById("validationOfName").innerHTML = validationMessage;
 
-    validationMessage = validateEmail(email);
-    if (validationMessage != "") {
-        isOk = false;
-    } 
+    isOk = validateInput(email, validation.email.pattern);
+    validationMessage = isOk ? "" : validation.email.errorMessage; 
     document.getElementById("validationOfEmail").innerHTML = validationMessage;
 
     return isOk;
 }
 
-function validateName(name) {
-    var pattern = /^([A-Z][a-zA-Z]* ?)*([A-Z][a-zA-Z]*)$/;
-    var test = pattern.test(name);
-    if (test == true) {
-        return "";
-    } else {
-        return "Type correct name!"
-    }
+function validateInput(input, pattern) {
+
+    return pattern.test(input);
 }
 
-function validateEmail(email) {
-    var pattern = /^[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9][a-zA-Z0-9._-]*\.[a-zA-Z.]{2,6}$/;
-    var test = pattern.test(email);
-    if (test == true) {
-        return "";
-    } else {
-        return "Type correct email!"
-    }
+function updateSubmitButton() {
+
+    document.getElementById("submitButton").disabled = areAllNeededFieldsWithValue() ? false : true;
 }
 
-function checkSubmitButton() {
-    var name, email, message;
+function areAllNeededFieldsWithValue() {
+    let name, email, message;
     name = document.getElementById("name").value;
     email = document.getElementById("email").value;
     message = document.getElementById("message").value;
 
-    if (name != "" && email != "" && message != "") {
-        document.getElementById("submitButton").disabled = false;
-    } else {
-        document.getElementById("submitButton").disabled = true;
-    }
+    return (name != "" && email != "" && message != "");
 }
