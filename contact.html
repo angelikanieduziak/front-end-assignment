@@ -1,117 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Me and my bike</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Me and my bike</title>
+        <script type="text/javascript" src="script.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet'>
+    </head>
 
-    <script>
+    <body>
 
-        function send() {
-            var result;
-            result = validateForm();
-            if (result == true) {
-                alert("Message sent");
-                document.getElementById("contactForm").reset(); 
-            }
-        }
+        <header>
+            <h1>Me and my bike</h1>
+            <nav>
+                <a class="navItem" href="index.html">About me</a>
+                <a class="navItem" href="adventure.html">Adventure</a>
+                <a class="navItem" href="contact.html">Contact</a>
+            </nav>
+        </header>
 
-        function validateForm() {
-            var validationMessage, name, email, message, isOk;
-            name = document.getElementById("name").value;
-            email = document.getElementById("email").value;
-            message = document.getElementById("message").value;
-            isOk = true;
+        <section class="content">
+            <div class="leftContent">
+                <h2>Contact</h2>
+                <p>Do you want to contact with me? Write...</p>
+                <form name="contactForm" id="contactForm" action="javascript:void(0);">
 
-            validationMessage = validateName(name);
-            if (validationMessage != "") {
-                isOk = false;
-            } 
-            document.getElementById("validationOfName").innerHTML = validationMessage;
+                    <label for="name">Name:</label>
+                    <input class="input" type="text" name="name" id="name" placeholder="Enter your name" onkeyup="checkSubmitButton()"><br>
+                    <p class="validationMessage" id="validationOfName"></p>
+                    
+                    <label for="email">Email: </label>
+                    <input class="input" type="text" name="email" id="email" placeholder="Give your email" onkeyup="checkSubmitButton()"><br>   
+                    <p class="validationMessage" id="validationOfEmail"></p>
+                    
+                    <textarea class="input" name="message" id="message" rows="10" cols="100" placeholder="Type a message." onkeyup="checkSubmitButton()"></textarea><br>
+                    <p class="validationMessage" id="validationOfMessage"></p>
+                    
+                    <input class="sendButton" type="submit" id="submitButton" value="SEND" disabled="disabled" onclick="send()">  
+                </form>   
+            </div>
+        </section>
 
-            validationMessage = validateEmail(email);
-            if (validationMessage != "") {
-                isOk = false;
-            } 
-            document.getElementById("validationOfEmail").innerHTML = validationMessage;
+        <footer>
+            <p>Sample www by angel</p>
+        </footer>
 
-            return isOk;
-        }
-
-        function validateName(name) {
-            var pattern = /^([A-Z][a-zA-Z]* ?)*([A-Z][a-zA-Z]*)$/;
-            var test = pattern.test(name);
-            if (test == true) {
-                return "";
-            } else {
-                return "Type correct name!"
-            }
-        }
-
-        function validateEmail(email) {
-            var pattern = /^[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9][a-zA-Z0-9._-]*\.[a-zA-Z.]{2,6}$/;
-            var test = pattern.test(email);
-            if (test == true) {
-                return "";
-            } else {
-                return "Type correct email!"
-            }
-        }
-
-        function checkSubmitButton() {
-            var validateMessage, name, email, message;
-            name = document.getElementById("name").value;
-            email = document.getElementById("email").value;
-            message = document.getElementById("message").value;
-
-            if (name != "" && email != "" && message != "") {
-                document.getElementById("submitButton").disabled = false;
-            } else {
-                document.getElementById("submitButton").disabled = true;
-            }
-        }
-    </script>
-
-</head>
-
-<body>
-
-    <header>
-        <h1>Me and my bike</h1>
-        <nav>
-            <a class="navItem" href="index.html">About me</a>
-            <a class="navItem" href="adventure.html">Adventure</a>
-            <a class="navItem" href="contact.html">Contact</a>
-        </nav>
-    </header>
-
-    <section>
-        <div class="content">
-            <h2>Contact</h2>
-            <p>Do you want to contact with me? Write...</p>
-            <form name="contactForm" id="contactForm" action="javascript:void(0);">
-
-                <label for="name">Name:</label>
-                <input class="input" type="text" name="name" id="name" placeholder="Enter your name" onkeyup="checkSubmitButton()"><br>
-                <p class="validationMessage" id="validationOfName"></p>
-                
-                <label for="email">Email: </label>
-                <input class="input" type="text" name="email" id="email" placeholder="Give your email" onkeyup="checkSubmitButton()"><br>   
-                <p class="validationMessage" id="validationOfEmail"></p>
-                
-                <textarea class="input" name="message" id="message" rows="10" cols="100" placeholder="Type a message." onkeyup="checkSubmitButton()"></textarea><br>
-                <p class="validationMessage" id="validationOfMessage"></p>
-                
-                <input class="sendButton" type="submit" id="submitButton" value="SEND" disabled="disabled" onclick="send()">  
-            </form>   
-        </div>
-    </section>
-
-    <footer>
-        <p>Sample www by angel</p>
-    </footer>
-
-</body>
+    </body>
 </html>

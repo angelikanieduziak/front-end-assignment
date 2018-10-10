@@ -16,13 +16,27 @@ nav {
     margin-top: 20px;
 }
 .navItem {
-    border: 3px solid #af0b70;
+    background-color:#F0F8FF;
+    text-decoration: none;
+    border: 3px solid #0b4aaf;
+    border-radius: 20px;
     padding: 15px;
 }
+
 .content {
-    width: 80%;
+    display: flex;
+    justify-content: center;
     padding: 20px;
-    overflow: hidden;
+}
+
+.leftContent, .rightContent {
+    display: flex;
+    flex-direction: column; 
+    padding: 20px;
+}
+
+.imgContent {
+    width: 80%;
 }
 
 footer {
@@ -46,8 +60,13 @@ footer {
     font-size: 22px;
     text-align:center;
     padding:15px;
+    background-color:#F0F8FF;
     border: 2px solid #0b4aaf;
-    border-radius: 10px;
+    border-radius: 20px;
+}
+
+.sendButton:disabled {
+    background-color:#c4cbd6;
 }
 
 .validationMessage {
